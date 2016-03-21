@@ -15,6 +15,7 @@
 		18270A701C9BD56800626A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */; };
 		18270A7B1C9BD56800626A36 /* DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A7A1C9BD56800626A36 /* DrawingTests.m */; };
 		18270A861C9BD56800626A36 /* DrawingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A851C9BD56800626A36 /* DrawingUITests.m */; };
+		18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBE9E1C9FD46900002668 /* YZDrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		18270A811C9BD56800626A36 /* DrawingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18270A851C9BD56800626A36 /* DrawingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingUITests.m; sourceTree = "<group>"; };
 		18270A871C9BD56800626A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18EBBE9D1C9FD46900002668 /* YZDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawView.h; sourceTree = "<group>"; };
+		18EBBE9E1C9FD46900002668 /* YZDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				18270A641C9BD56800626A36 /* AppDelegate.m */,
 				18270A661C9BD56800626A36 /* ViewController.h */,
 				18270A671C9BD56800626A36 /* ViewController.m */,
+				18EBBE9D1C9FD46900002668 /* YZDrawView.h */,
+				18EBBE9E1C9FD46900002668 /* YZDrawView.m */,
 				18270A691C9BD56800626A36 /* Main.storyboard */,
 				18270A6C1C9BD56800626A36 /* Assets.xcassets */,
 				18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */,
@@ -273,6 +278,7 @@
 				18270A681C9BD56800626A36 /* ViewController.m in Sources */,
 				18270A651C9BD56800626A36 /* AppDelegate.m in Sources */,
 				18270A621C9BD56800626A36 /* main.m in Sources */,
+				18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +502,7 @@
 				18270A8C1C9BD56800626A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18270A8D1C9BD56800626A36 /* Build configuration list for PBXNativeTarget "DrawingTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +511,7 @@
 				18270A8F1C9BD56800626A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18270A901C9BD56800626A36 /* Build configuration list for PBXNativeTarget "DrawingUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +520,7 @@
 				18270A921C9BD56800626A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

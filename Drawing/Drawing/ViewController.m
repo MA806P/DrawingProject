@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YZDrawView.h"
 
 @interface ViewController ()
 
@@ -16,12 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
+    YZDrawView * drawView = [YZDrawView drawView];
+    [self.view addSubview:drawView];
+    
 }
 
 @end
