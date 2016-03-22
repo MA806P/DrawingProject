@@ -16,6 +16,7 @@
 		18270A7B1C9BD56800626A36 /* DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A7A1C9BD56800626A36 /* DrawingTests.m */; };
 		18270A861C9BD56800626A36 /* DrawingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A851C9BD56800626A36 /* DrawingUITests.m */; };
 		18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBE9E1C9FD46900002668 /* YZDrawView.m */; };
+		18ED7F6D1CA123DF00AD6277 /* YZDrawPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		18270A871C9BD56800626A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18EBBE9D1C9FD46900002668 /* YZDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawView.h; sourceTree = "<group>"; };
 		18EBBE9E1C9FD46900002668 /* YZDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawView.m; sourceTree = "<group>"; };
+		18ED7F6B1CA123DF00AD6277 /* YZDrawPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperView.h; sourceTree = "<group>"; };
+		18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				18270A671C9BD56800626A36 /* ViewController.m */,
 				18EBBE9D1C9FD46900002668 /* YZDrawView.h */,
 				18EBBE9E1C9FD46900002668 /* YZDrawView.m */,
+				18ED7F6B1CA123DF00AD6277 /* YZDrawPaperView.h */,
+				18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */,
 				18270A691C9BD56800626A36 /* Main.storyboard */,
 				18270A6C1C9BD56800626A36 /* Assets.xcassets */,
 				18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */,
@@ -212,6 +217,7 @@
 				TargetAttributes = {
 					18270A5C1C9BD56700626A36 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = ET38CG2G34;
 					};
 					18270A751C9BD56800626A36 = {
 						CreatedOnToolsVersion = 7.2;
@@ -277,6 +283,7 @@
 			files = (
 				18270A681C9BD56800626A36 /* ViewController.m in Sources */,
 				18270A651C9BD56800626A36 /* AppDelegate.m in Sources */,
+				18ED7F6D1CA123DF00AD6277 /* YZDrawPaperView.m in Sources */,
 				18270A621C9BD56800626A36 /* main.m in Sources */,
 				18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */,
 			);
@@ -417,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Drawing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-59cai.com.Drawing";
@@ -428,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Drawing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-59cai.com.Drawing";
