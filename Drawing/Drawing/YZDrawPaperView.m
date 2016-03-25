@@ -14,7 +14,7 @@
 
 @end
 
-static NSInteger stepCount = 0;
+static NSUInteger stepCount = 0;
 
 @implementation YZDrawPaperView
 
@@ -36,6 +36,14 @@ static NSInteger stepCount = 0;
 {
     //[self endEditing:YES];
     //NSLog(@" touchesBegan ");
+    
+    NSUInteger touchPointArrayCount = self.touchPointArray.count;
+    if(touchPointArrayCount>0 && touchPointArrayCount>stepCount)
+    {
+        [self.touchPointArray removeObjectsInRange:NSMakeRange(stepCount, touchPointArrayCount-stepCount)];
+    }
+    
+    
     
     UITouch * beganTouch = [touches anyObject];
     CGPoint beganPoint = [beganTouch locationInView:self];

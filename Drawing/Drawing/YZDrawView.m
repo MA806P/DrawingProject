@@ -49,30 +49,31 @@
     [self addSubview:topView];
     self.topView = topView;
     
-    UIButton * saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    saveBtn.frame = CGRectMake(10, 20, 44, 44);
-    [saveBtn setTitle:@"save" forState:UIControlStateNormal];
-    [saveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [saveBtn addTarget:self action:@selector(saveBtnTouch) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:saveBtn];
     
     UIButton * undoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    undoBtn.frame = CGRectMake(60, 20, 44, 44);
-    [undoBtn setTitle:@"undo" forState:UIControlStateNormal];
+    undoBtn.frame = CGRectMake(10, 20, 44, 44);
+    [undoBtn setImage:[UIImage imageNamed:@"undo"] forState:UIControlStateNormal];
     [undoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [undoBtn addTarget:self action:@selector(undoBtnTouch) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:undoBtn];
     
     UIButton * redoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    redoBtn.frame = CGRectMake(110, 20, 44, 44);
-    [redoBtn setTitle:@"redo" forState:UIControlStateNormal];
+    redoBtn.frame = CGRectMake(60, 20, 44, 44);
+    [redoBtn setImage:[UIImage imageNamed:@"redo"] forState:UIControlStateNormal];
     [redoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [redoBtn addTarget:self action:@selector(redoBtnTouch) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:redoBtn];
     
+    UIButton * saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    saveBtn.frame = CGRectMake(110, 20, 44, 44);
+    [saveBtn setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
+    [saveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [saveBtn addTarget:self action:@selector(saveBtnTouch) forControlEvents:UIControlEventTouchUpInside];
+    [self.topView addSubview:saveBtn];
+    
     UIButton * clearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     clearBtn.frame = CGRectMake(160, 20, 44, 44);
-    [clearBtn setTitle:@"clear" forState:UIControlStateNormal];
+    [clearBtn setImage:[UIImage imageNamed:@"clear"] forState:UIControlStateNormal];
     [clearBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [clearBtn addTarget:self action:@selector(clearBtnTouch) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:clearBtn];
@@ -83,10 +84,14 @@
     [self addSubview:drawPaperView];
     self.drawPaperView = drawPaperView;
     
-//    UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 20, 100, 20)];
+//    UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 20, 100, 40)];
 //    textField.backgroundColor = [UIColor brownColor];
 //    [self.drawPaperView addSubview:textField];
-    
+//    
+//    UITextField * textField2 = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, 100, 40)];
+//    textField2.backgroundColor = [UIColor colorWithRed:0.217 green:0.400 blue:0.200 alpha:1.000];
+//    textField2.keyboardType = UIKeyboardTypeNamePhonePad;
+//    [self.drawPaperView addSubview:textField2];
     
     //底部视图
     UIView * bottomView = [[UIView alloc] init];
