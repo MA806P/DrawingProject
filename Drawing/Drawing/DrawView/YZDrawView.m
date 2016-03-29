@@ -7,11 +7,13 @@
 //
 
 #import "YZDrawView.h"
+#import "YZDrawTopView.h"
 #import "YZDrawPaperView.h"
+
 
 @interface YZDrawView ()
 
-@property (nonatomic, weak) UIView * topView;
+@property (nonatomic, weak) YZDrawTopView * topView;
 @property (nonatomic, weak) YZDrawPaperView * drawPaperView;
 @property (nonatomic, weak) UIView * bottomView;
 
@@ -43,43 +45,20 @@
     
     NSLog(@"init subviews");
     
+    __weak __typeof(self) unsafeSelf = self;
+    
     //顶部视图
-    UIView * topView = [[UIView alloc] init];
+    YZDrawTopView * topView = [[YZDrawTopView alloc] init];
     topView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
+    topView.saveBlock = ^(){ [unsafeSelf.drawPaperView save]; };
+    topView.undoBlock = ^(){ [unsafeSelf.drawPaperView undo]; };
+    topView.redoBlock = ^(){ [unsafeSelf.drawPaperView redo]; };
+    topView.clearBlock = ^(){ [unsafeSelf.drawPaperView clear]; };
     [self addSubview:topView];
     self.topView = topView;
     
-    
-    UIButton * undoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    undoBtn.frame = CGRectMake(10, 20, 44, 44);
-    [undoBtn setImage:[UIImage imageNamed:@"undo"] forState:UIControlStateNormal];
-    [undoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [undoBtn addTarget:self action:@selector(undoBtnTouch) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:undoBtn];
-    
-    UIButton * redoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    redoBtn.frame = CGRectMake(60, 20, 44, 44);
-    [redoBtn setImage:[UIImage imageNamed:@"redo"] forState:UIControlStateNormal];
-    [redoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [redoBtn addTarget:self action:@selector(redoBtnTouch) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:redoBtn];
-    
-    UIButton * saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    saveBtn.frame = CGRectMake(110, 20, 44, 44);
-    [saveBtn setImage:[UIImage imageNamed:@"save"] forState:UIControlStateNormal];
-    [saveBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [saveBtn addTarget:self action:@selector(saveBtnTouch) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:saveBtn];
-    
-    UIButton * clearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    clearBtn.frame = CGRectMake(160, 20, 44, 44);
-    [clearBtn setImage:[UIImage imageNamed:@"clear"] forState:UIControlStateNormal];
-    [clearBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clearBtn addTarget:self action:@selector(clearBtnTouch) forControlEvents:UIControlEventTouchUpInside];
-    [self.topView addSubview:clearBtn];
-    
-    
-    YZDrawPaperView * drawPaperView = [[YZDrawPaperView alloc] init];
+    //中部视图
+    YZDrawPaperView * drawPaperView = [YZDrawPaperView drawPaperViewWithTopView:topView];
     drawPaperView.backgroundColor = [UIColor colorWithRed:0.800 green:0.910 blue:0.812 alpha:1.000];
     [self addSubview:drawPaperView];
     self.drawPaperView = drawPaperView;
@@ -158,26 +137,8 @@
 }
 
 
-#pragma mark - 按钮处理事件
 
-- (void)saveBtnTouch
-{
-    [self.drawPaperView save];
-}
 
-- (void)undoBtnTouch
-{
-    [self.drawPaperView undo];
-}
 
-- (void)redoBtnTouch
-{
-    [self.drawPaperView redo];
-}
-
-- (void)clearBtnTouch
-{
-    [self.drawPaperView clear];
-}
 
 @end

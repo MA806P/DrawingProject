@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class YZDrawTopView;
+
 @interface YZDrawPaperView : UIView
 
 - (void)save;
@@ -15,5 +17,6 @@
 - (void)redo;
 - (void)clear;
 
++ (id)drawPaperViewWithTopView:(YZDrawTopView *)topView;
 
 @end

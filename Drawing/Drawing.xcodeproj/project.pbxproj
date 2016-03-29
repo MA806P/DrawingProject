@@ -15,8 +15,10 @@
 		18270A701C9BD56800626A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */; };
 		18270A7B1C9BD56800626A36 /* DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A7A1C9BD56800626A36 /* DrawingTests.m */; };
 		18270A861C9BD56800626A36 /* DrawingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A851C9BD56800626A36 /* DrawingUITests.m */; };
-		18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EBBE9E1C9FD46900002668 /* YZDrawView.m */; };
-		18ED7F6D1CA123DF00AD6277 /* YZDrawPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */; };
+		18EDF08F1CAA7F9000FCD0CE /* YZDrawPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */; };
+		18EDF0901CAA7F9000FCD0CE /* YZDrawTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08C1CAA7F9000FCD0CE /* YZDrawTopView.m */; };
+		18EDF0911CAA7F9000FCD0CE /* YZDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08E1CAA7F9000FCD0CE /* YZDrawView.m */; };
+		18EDF0951CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF0941CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +55,14 @@
 		18270A811C9BD56800626A36 /* DrawingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18270A851C9BD56800626A36 /* DrawingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingUITests.m; sourceTree = "<group>"; };
 		18270A871C9BD56800626A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18EBBE9D1C9FD46900002668 /* YZDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawView.h; sourceTree = "<group>"; };
-		18EBBE9E1C9FD46900002668 /* YZDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawView.m; sourceTree = "<group>"; };
-		18ED7F6B1CA123DF00AD6277 /* YZDrawPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperView.h; sourceTree = "<group>"; };
-		18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperView.m; sourceTree = "<group>"; };
+		18EDF0891CAA7F9000FCD0CE /* YZDrawPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperView.h; sourceTree = "<group>"; };
+		18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperView.m; sourceTree = "<group>"; };
+		18EDF08B1CAA7F9000FCD0CE /* YZDrawTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawTopView.h; sourceTree = "<group>"; };
+		18EDF08C1CAA7F9000FCD0CE /* YZDrawTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawTopView.m; sourceTree = "<group>"; };
+		18EDF08D1CAA7F9000FCD0CE /* YZDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawView.h; sourceTree = "<group>"; };
+		18EDF08E1CAA7F9000FCD0CE /* YZDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawView.m; sourceTree = "<group>"; };
+		18EDF0931CAA7FD100FCD0CE /* UIAlertView+ShowBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ShowBlock.h"; sourceTree = "<group>"; };
+		18EDF0941CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ShowBlock.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,18 +113,10 @@
 		18270A5F1C9BD56800626A36 /* Drawing */ = {
 			isa = PBXGroup;
 			children = (
-				18270A631C9BD56800626A36 /* AppDelegate.h */,
-				18270A641C9BD56800626A36 /* AppDelegate.m */,
 				18270A661C9BD56800626A36 /* ViewController.h */,
 				18270A671C9BD56800626A36 /* ViewController.m */,
-				18EBBE9D1C9FD46900002668 /* YZDrawView.h */,
-				18EBBE9E1C9FD46900002668 /* YZDrawView.m */,
-				18ED7F6B1CA123DF00AD6277 /* YZDrawPaperView.h */,
-				18ED7F6C1CA123DF00AD6277 /* YZDrawPaperView.m */,
-				18270A691C9BD56800626A36 /* Main.storyboard */,
-				18270A6C1C9BD56800626A36 /* Assets.xcassets */,
-				18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */,
-				18270A711C9BD56800626A36 /* Info.plist */,
+				18EDF0881CAA7F9000FCD0CE /* DrawView */,
+				18EDF0921CAA7FD100FCD0CE /* Category */,
 				18270A601C9BD56800626A36 /* Supporting Files */,
 			);
 			path = Drawing;
@@ -127,6 +125,12 @@
 		18270A601C9BD56800626A36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18270A631C9BD56800626A36 /* AppDelegate.h */,
+				18270A641C9BD56800626A36 /* AppDelegate.m */,
+				18270A691C9BD56800626A36 /* Main.storyboard */,
+				18270A6C1C9BD56800626A36 /* Assets.xcassets */,
+				18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */,
+				18270A711C9BD56800626A36 /* Info.plist */,
 				18270A611C9BD56800626A36 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -148,6 +152,28 @@
 				18270A871C9BD56800626A36 /* Info.plist */,
 			);
 			path = DrawingUITests;
+			sourceTree = "<group>";
+		};
+		18EDF0881CAA7F9000FCD0CE /* DrawView */ = {
+			isa = PBXGroup;
+			children = (
+				18EDF08D1CAA7F9000FCD0CE /* YZDrawView.h */,
+				18EDF08E1CAA7F9000FCD0CE /* YZDrawView.m */,
+				18EDF0891CAA7F9000FCD0CE /* YZDrawPaperView.h */,
+				18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */,
+				18EDF08B1CAA7F9000FCD0CE /* YZDrawTopView.h */,
+				18EDF08C1CAA7F9000FCD0CE /* YZDrawTopView.m */,
+			);
+			path = DrawView;
+			sourceTree = "<group>";
+		};
+		18EDF0921CAA7FD100FCD0CE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				18EDF0931CAA7FD100FCD0CE /* UIAlertView+ShowBlock.h */,
+				18EDF0941CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,11 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EDF08F1CAA7F9000FCD0CE /* YZDrawPaperView.m in Sources */,
+				18EDF0901CAA7F9000FCD0CE /* YZDrawTopView.m in Sources */,
 				18270A681C9BD56800626A36 /* ViewController.m in Sources */,
 				18270A651C9BD56800626A36 /* AppDelegate.m in Sources */,
-				18ED7F6D1CA123DF00AD6277 /* YZDrawPaperView.m in Sources */,
 				18270A621C9BD56800626A36 /* main.m in Sources */,
-				18EBBE9F1C9FD46900002668 /* YZDrawView.m in Sources */,
+				18EDF0951CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m in Sources */,
+				18EDF0911CAA7F9000FCD0CE /* YZDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

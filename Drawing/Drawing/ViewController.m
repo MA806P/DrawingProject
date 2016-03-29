@@ -26,6 +26,22 @@
     self.drawView = drawView;
 }
 
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+//                                                                   message:@"This is an alert."
+//                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+//    
+//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                          handler:^(UIAlertAction * action) {}];
+//    UIAlertAction* defaultAction1 = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault
+//                                                          handler:^(UIAlertAction * action) {}];
+//    
+//    [alert addAction:defaultAction];
+//    [alert addAction:defaultAction1];
+//    [self presentViewController:alert animated:YES completion:nil];
+//}
+
 //屏幕旋转调整视图大小
 
 //下面这两种方法已经不推荐使用了，第一种旋转结束才调整视图没有动画，第二种有动画与控制器视图的动画不一致慢能看到控制器的视图
