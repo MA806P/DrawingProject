@@ -8,13 +8,13 @@
 
 #import "YZDrawView.h"
 #import "YZDrawTopView.h"
-#import "YZDrawPaperView.h"
+#import "YZDrawPaperProView.h"
 
 
 @interface YZDrawView ()
 
 @property (nonatomic, weak) YZDrawTopView * topView;
-@property (nonatomic, weak) YZDrawPaperView * drawPaperView;
+@property (nonatomic, weak) YZDrawPaperProView * drawPaperView;
 @property (nonatomic, weak) UIView * bottomView;
 
 @end
@@ -58,7 +58,8 @@
     self.topView = topView;
     
     //中部视图
-    YZDrawPaperView * drawPaperView = [YZDrawPaperView drawPaperViewWithTopView:topView];
+    //YZDrawPaperView * drawPaperView = [YZDrawPaperView drawPaperViewWithTopView:topView];
+    YZDrawPaperProView * drawPaperView = [YZDrawPaperProView drawPaperProViewWithTopView:topView];
     drawPaperView.backgroundColor = [UIColor colorWithRed:0.800 green:0.910 blue:0.812 alpha:1.000];
     [self addSubview:drawPaperView];
     self.drawPaperView = drawPaperView;

@@ -15,6 +15,7 @@
 		18270A701C9BD56800626A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */; };
 		18270A7B1C9BD56800626A36 /* DrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A7A1C9BD56800626A36 /* DrawingTests.m */; };
 		18270A861C9BD56800626A36 /* DrawingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270A851C9BD56800626A36 /* DrawingUITests.m */; };
+		18D9FB321CAB854A00BCEFA4 /* YZDrawPaperProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D9FB311CAB854A00BCEFA4 /* YZDrawPaperProView.m */; };
 		18EDF08F1CAA7F9000FCD0CE /* YZDrawPaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */; };
 		18EDF0901CAA7F9000FCD0CE /* YZDrawTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08C1CAA7F9000FCD0CE /* YZDrawTopView.m */; };
 		18EDF0911CAA7F9000FCD0CE /* YZDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDF08E1CAA7F9000FCD0CE /* YZDrawView.m */; };
@@ -55,6 +56,8 @@
 		18270A811C9BD56800626A36 /* DrawingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18270A851C9BD56800626A36 /* DrawingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingUITests.m; sourceTree = "<group>"; };
 		18270A871C9BD56800626A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D9FB301CAB854A00BCEFA4 /* YZDrawPaperProView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperProView.h; sourceTree = "<group>"; };
+		18D9FB311CAB854A00BCEFA4 /* YZDrawPaperProView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperProView.m; sourceTree = "<group>"; };
 		18EDF0891CAA7F9000FCD0CE /* YZDrawPaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperView.h; sourceTree = "<group>"; };
 		18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperView.m; sourceTree = "<group>"; };
 		18EDF08B1CAA7F9000FCD0CE /* YZDrawTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawTopView.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				18EDF08E1CAA7F9000FCD0CE /* YZDrawView.m */,
 				18EDF0891CAA7F9000FCD0CE /* YZDrawPaperView.h */,
 				18EDF08A1CAA7F9000FCD0CE /* YZDrawPaperView.m */,
+				18D9FB301CAB854A00BCEFA4 /* YZDrawPaperProView.h */,
+				18D9FB311CAB854A00BCEFA4 /* YZDrawPaperProView.m */,
 				18EDF08B1CAA7F9000FCD0CE /* YZDrawTopView.h */,
 				18EDF08C1CAA7F9000FCD0CE /* YZDrawTopView.m */,
 			);
@@ -311,6 +316,7 @@
 				18EDF0901CAA7F9000FCD0CE /* YZDrawTopView.m in Sources */,
 				18270A681C9BD56800626A36 /* ViewController.m in Sources */,
 				18270A651C9BD56800626A36 /* AppDelegate.m in Sources */,
+				18D9FB321CAB854A00BCEFA4 /* YZDrawPaperProView.m in Sources */,
 				18270A621C9BD56800626A36 /* main.m in Sources */,
 				18EDF0951CAA7FD100FCD0CE /* UIAlertView+ShowBlock.m in Sources */,
 				18EDF0911CAA7F9000FCD0CE /* YZDrawView.m in Sources */,

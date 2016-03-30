@@ -1,19 +1,19 @@
 //
-//  YZDrawPaperView.m
+//  YZDrawPaperProView.m
 //  Drawing
 //
-//  Created by 159CaiMini02 on 16/3/22.
+//  Created by 159CaiMini02 on 16/3/30.
 //  Copyright © 2016年 159CaiMini. All rights reserved.
 //
 
-#import "YZDrawPaperView.h"
+#import "YZDrawPaperProView.h"
 #import "YZDrawTopView.h"
 #import "UIAlertView+ShowBlock.h"
 
-@interface YZDrawPaperView ()
+@interface YZDrawPaperProView ()
 
 /** 保存手指在屏幕上滑动的点 */
-@property (nonatomic, strong) NSMutableArray * touchPointArray;
+@property (nonatomic, strong) NSMutableArray * pathArray;
 
 /** 画板的顶部视图 */
 @property (nonatomic, strong) YZDrawTopView * topView;
@@ -22,21 +22,21 @@
 
 static NSUInteger stepCount = 0;
 
-@implementation YZDrawPaperView
+@implementation YZDrawPaperProView
 
 
-- (NSMutableArray *)touchPointArray
+- (NSMutableArray *)pathArray
 {
-    if (_touchPointArray == nil)
+    if (_pathArray == nil)
     {
-        _touchPointArray = [NSMutableArray array];
+        _pathArray = [NSMutableArray array];
     }
-    return _touchPointArray;
+    return _pathArray;
 }
 
-+ (id)drawPaperViewWithTopView:(YZDrawTopView *)topView
++ (id)drawPaperProViewWithTopView:(YZDrawTopView *)topView
 {
-    YZDrawPaperView * paperView = [[self alloc] init];
+    YZDrawPaperProView * paperView = [[self alloc] init];
     paperView.topView = topView;
     return paperView;
 }
@@ -47,43 +47,45 @@ static NSUInteger stepCount = 0;
 //开始触摸
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    //[self endEditing:YES];
-    //NSLog(@" touchesBegan ");
-    
-    NSUInteger touchPointArrayCount = self.touchPointArray.count;
-    if(touchPointArrayCount>0 && touchPointArrayCount>stepCount)
+    //当撤消后，再进行画线 清除缓存的撤销的路径
+    NSUInteger pathArrayCount = self.pathArray.count;
+    if(pathArrayCount>0 && pathArrayCount>stepCount)
     {
-        [self.touchPointArray removeObjectsInRange:NSMakeRange(stepCount, touchPointArrayCount-stepCount)];
+        [self.pathArray removeObjectsInRange:NSMakeRange(stepCount, pathArrayCount-stepCount)];
         self.topView.redoBtn.enabled = NO;
+        self.topView.undoBtn.enabled = YES;
     }
     else
     {
         self.topView.undoBtn.enabled = YES;
     }
     
-    
-    
+    //当手指按下时创建一条路径，设置路径的起点
     UITouch * beganTouch = [touches anyObject];
     CGPoint beganPoint = [beganTouch locationInView:self];
     
-    NSMutableArray * subTouchPointArray = [NSMutableArray array];
-    [subTouchPointArray addObject:[NSValue valueWithCGPoint:beganPoint]];
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    [path moveToPoint:beganPoint];
+    [path setLineJoinStyle:kCGLineJoinRound];
+    [path setLineCapStyle:kCGLineCapRound];
+    [path setLineWidth:10];
     
-    //大数组里面包含着小数组，小数组保存的手指滑动经过的点从开始到结束
-    [self.touchPointArray addObject:subTouchPointArray];
+    //数组保存的手指滑动的路径
+    [self.pathArray addObject:path];
+    stepCount = self.pathArray.count;
 }
 
 //触摸滑动
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@" touchesMoved ");
+    //获取手指对应的触碰点
     UITouch * moveTouch = [touches anyObject];
     CGPoint movePoint = [moveTouch locationInView:self];
     
-    NSMutableArray * subTouchPointArray = [self.touchPointArray lastObject];
-    [subTouchPointArray addObject:[NSValue valueWithCGPoint:movePoint]];
+    //取出当前的路径，设置当前路径经过的点
+    UIBezierPath * currentPath = [self.pathArray lastObject];
+    [currentPath addLineToPoint:movePoint];
     
-    stepCount = self.touchPointArray.count;
     //调用drawRect划线
     [self setNeedsDisplay];
 }
@@ -91,52 +93,31 @@ static NSUInteger stepCount = 0;
 //触摸结束
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    //NSLog(@" touchesEnded ");
+    //获取手指对应的触碰点
+    UITouch * moveTouch = [touches anyObject];
+    CGPoint movePoint = [moveTouch locationInView:self];
     
-    UITouch * endTouch = [touches anyObject];
-    CGPoint endPoint = [endTouch locationInView:self];
+    //取出当前的路径，设置当前路径的终点
+    UIBezierPath * currentPath = [self.pathArray lastObject];
+    [currentPath addLineToPoint:movePoint];
     
-    NSMutableArray * subTouchPointArray = [self.touchPointArray lastObject];
-    [subTouchPointArray addObject:[NSValue valueWithCGPoint:endPoint]];
-    
-    stepCount = self.touchPointArray.count;
     //调用drawRect划线
     [self setNeedsDisplay];
 }
 
 
-//画线，由点连成线
+//画线
 - (void)drawRect:(CGRect)rect
 {
-    //获取上下文
-    CGContextRef contextRef = UIGraphicsGetCurrentContext();
+    //[[UIColor redColor] set];
     
+    
+    //由路径数组绘制所有的线段
     for (NSInteger stepIndex=0; stepIndex<stepCount; stepIndex++)
     {
-        NSMutableArray * subPoints = self.touchPointArray[stepIndex];
-        for (int pointIndex=0; pointIndex<subPoints.count; pointIndex++)
-        {
-            CGPoint point = [subPoints[pointIndex] CGPointValue];
-            if (pointIndex == 0)
-            {
-                //线段起点
-                CGContextMoveToPoint(contextRef, point.x, point.y);
-            }
-            else
-            {
-                //线段终点
-                CGContextAddLineToPoint(contextRef, point.x, point.y);
-            }
-        }
-        
+        UIBezierPath *path = self.pathArray[stepIndex];
+        [path stroke];
     }
-    
-    CGContextSetLineCap(contextRef, kCGLineCapRound); //线移动时的形状
-    CGContextSetLineJoin(contextRef, kCGLineJoinRound); //线段转角处的形状
-    CGContextSetLineWidth(contextRef, 2);
-    
-    //渲染
-    CGContextStrokePath(contextRef);
     
 }
 
@@ -195,7 +176,7 @@ static NSUInteger stepCount = 0;
 
 - (void)redo
 {
-    if (stepCount>=self.touchPointArray.count-1)
+    if (stepCount>=self.pathArray.count-1)
     {
         stepCount += 1;
         self.topView.redoBtn.enabled = NO;
@@ -217,7 +198,7 @@ static NSUInteger stepCount = 0;
     self.topView.undoBtn.enabled = NO;
     
     stepCount = 0;
-    [self.touchPointArray removeAllObjects];
+    [self.pathArray removeAllObjects];
     [self setNeedsDisplay];
 }
 
@@ -255,68 +236,5 @@ static NSUInteger stepCount = 0;
     
     
 }
-
-
-
-
-#pragma mark - 测试代码
-
-- (void)test
-{
-    /*
-     CGContextRef ctx = UIGraphicsGetCurrentContext();
-     CGContextMoveToPoint(ctx, 20, 20);
-     CGContextAddLineToPoint(ctx, 60, 60);
-     //CGContextSetLineCap(ctx, kCGLineCapRound); //线移动时的形状
-     //CGContextSetLineJoin(ctx, kCGLineJoinRound); //线段转角处的形状
-     //CGContextSetLineWidth(ctx, 2);
-     CGContextStrokePath(ctx);
-     */
-    
-    /*
-     // 1.创建路径
-     CGMutablePathRef path = CGPathCreateMutable();
-     CGPathMoveToPoint(path, NULL, 20, 20);
-     CGPathAddLineToPoint(path, NULL, 100, 100);
-     
-     CGMutablePathRef path2 = CGPathCreateMutable();
-     CGPathMoveToPoint(path2, NULL, 120, 120);
-     CGPathAddLineToPoint(path2, NULL, 200, 200);
-     
-     // 2.将路径添加到上下文中
-     CGContextRef ctx = UIGraphicsGetCurrentContext();
-     CGContextAddPath(ctx, path);
-     CGContextAddPath(ctx, path2);
-     
-     // 3.渲染
-     CGContextStrokePath(ctx);
-     */
-    
-    
-    
-    /*
-     //UIBezierPath == CGMutablePathRef
-     // 1.创建一条路径
-     UIBezierPath *path = [UIBezierPath bezierPath];
-     // 2.给路径设置起点和重点
-     [path moveToPoint:CGPointMake(20, 20)];
-     [path addLineToPoint:CGPointMake(100, 100)];
-     [path setLineCapStyle:kCGLineCapRound];
-     [path setLineWidth:10];
-     [path setLineJoinStyle:kCGLineJoinRound];
-     
-     // 3.渲染路径
-     [path stroke];
-     
-     UIBezierPath *path2 = [UIBezierPath bezierPath];
-     [path2 moveToPoint:CGPointMake(120, 120)];
-     [path2 addLineToPoint:CGPointMake(200, 200)];
-     [path2 stroke];
-     */
-}
-
-
-
-
 
 @end
