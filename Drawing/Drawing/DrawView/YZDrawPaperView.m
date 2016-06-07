@@ -25,6 +25,17 @@ static NSUInteger stepCount = 0;
 @implementation YZDrawPaperView
 
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector() name:@"" object:<#(nullable id)#>];
+    }
+    return self;
+}
+
+
+
 - (NSMutableArray *)touchPointArray
 {
     if (_touchPointArray == nil)
