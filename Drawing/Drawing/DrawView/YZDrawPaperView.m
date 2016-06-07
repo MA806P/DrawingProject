@@ -29,7 +29,7 @@ static NSUInteger stepCount = 0;
 {
     if (self = [super initWithFrame:frame])
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector() name:@"" object:<#(nullable id)#>];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawLineSetting:) name:@"" object:nil];
     }
     return self;
 }
@@ -51,6 +51,17 @@ static NSUInteger stepCount = 0;
     paperView.topView = topView;
     return paperView;
 }
+
+
+#pragma mark - 接收通知处理，设置画板属性线宽颜色等
+
+- (void)drawLineSetting:(NSNotification *)notification
+{
+    
+    
+}
+
+
 
 
 #pragma mark - 视图触摸处理

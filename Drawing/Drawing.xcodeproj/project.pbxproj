@@ -57,6 +57,7 @@
 		18270A811C9BD56800626A36 /* DrawingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18270A851C9BD56800626A36 /* DrawingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingUITests.m; sourceTree = "<group>"; };
 		18270A871C9BD56800626A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184ED5C21D06FBE600E9793B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18D9FB301CAB854A00BCEFA4 /* YZDrawPaperProView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawPaperProView.h; sourceTree = "<group>"; };
 		18D9FB311CAB854A00BCEFA4 /* YZDrawPaperProView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDrawPaperProView.m; sourceTree = "<group>"; };
 		18E99A1C1CB6080500E67F8C /* YZDrawBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDrawBottomView.h; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 			children = (
 				18270A631C9BD56800626A36 /* AppDelegate.h */,
 				18270A641C9BD56800626A36 /* AppDelegate.m */,
+				184ED5C21D06FBE600E9793B /* PrefixHeader.pch */,
 				18270A691C9BD56800626A36 /* Main.storyboard */,
 				18270A6C1C9BD56800626A36 /* Assets.xcassets */,
 				18270A6E1C9BD56800626A36 /* LaunchScreen.storyboard */,
