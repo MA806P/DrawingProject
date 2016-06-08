@@ -25,14 +25,6 @@ static NSUInteger stepCount = 0;
 @implementation YZDrawPaperView
 
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame])
-    {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawLineSetting:) name:@"" object:nil];
-    }
-    return self;
-}
 
 
 
@@ -53,13 +45,6 @@ static NSUInteger stepCount = 0;
 }
 
 
-#pragma mark - 接收通知处理，设置画板属性线宽颜色等
-
-- (void)drawLineSetting:(NSNotification *)notification
-{
-    
-    
-}
 
 
 
@@ -155,7 +140,7 @@ static NSUInteger stepCount = 0;
     
     CGContextSetLineCap(contextRef, kCGLineCapRound); //线移动时的形状
     CGContextSetLineJoin(contextRef, kCGLineJoinRound); //线段转角处的形状
-    CGContextSetLineWidth(contextRef, 2);
+    CGContextSetLineWidth(contextRef, self.lineWidth);
     
     //渲染
     CGContextStrokePath(contextRef);

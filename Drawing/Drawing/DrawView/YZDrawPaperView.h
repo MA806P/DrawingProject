@@ -12,6 +12,8 @@
 
 @interface YZDrawPaperView : UIView
 
+@property (nonatomic, assign) CGFloat lineWidth;
+
 - (void)save;
 - (void)undo;
 - (void)redo;

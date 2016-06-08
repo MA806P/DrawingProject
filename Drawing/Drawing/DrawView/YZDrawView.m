@@ -43,7 +43,7 @@
 - (void)initSubViews
 {
     
-    NSLog(@"init subviews");
+    //NSLog(@"init subviews");
     
     __weak __typeof(self) unsafeSelf = self;
     
@@ -57,10 +57,14 @@
     [self addSubview:topView];
     self.topView = topView;
     
+    
+    CGFloat lineW = 3;
+    
     //中部视图
     //YZDrawPaperView * drawPaperView = [YZDrawPaperView drawPaperViewWithTopView:topView];
     YZDrawPaperProView * drawPaperView = [YZDrawPaperProView drawPaperProViewWithTopView:topView];
     drawPaperView.backgroundColor = [UIColor colorWithRed:0.800 green:0.910 blue:0.812 alpha:1.000];
+    drawPaperView.lineWidth = lineW;
     [self addSubview:drawPaperView];
     self.drawPaperView = drawPaperView;
     
@@ -68,6 +72,7 @@
     //底部视图
     YZDrawBottomView * bottomView = [YZDrawBottomView drawBottomView];
     bottomView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];
+    bottomView.lineWidth = lineW;
     [self addSubview:bottomView];
     self.bottomView = bottomView;
     
@@ -80,7 +85,7 @@
 
 - (void)layoutSubviews
 {
-    NSLog(@"layout subviews");
+    //NSLog(@"layout subviews");
     
     //顶部视图添加约束
     self.topView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -128,7 +133,7 @@
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
-    NSLog(@"will move to superview");
+    //NSLog(@"will move to superview");
     self.frame = newSuperview.frame;
 }
 

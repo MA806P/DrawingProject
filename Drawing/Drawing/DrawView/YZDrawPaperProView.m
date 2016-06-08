@@ -42,6 +42,26 @@ static NSUInteger stepCount = 0;
 }
 
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawLineSetting:) name:LineWidthChangeNotification object:nil];
+    }
+    return self;
+}
+#pragma mark - 接收通知处理，设置画板属性线宽颜色等
+
+- (void)drawLineSetting:(NSNotification *)notification
+{
+    //NSLog(@" --- %@", notification.object);
+    
+    self.lineWidth = [notification.object floatValue];
+}
+
+
+
+
 #pragma mark - 视图触摸处理
 
 //开始触摸
@@ -68,7 +88,7 @@ static NSUInteger stepCount = 0;
     [path moveToPoint:beganPoint];
     [path setLineJoinStyle:kCGLineJoinRound];
     [path setLineCapStyle:kCGLineCapRound];
-    [path setLineWidth:10];
+    [path setLineWidth:self.lineWidth];
     
     //数组保存的手指滑动的路径
     [self.pathArray addObject:path];
